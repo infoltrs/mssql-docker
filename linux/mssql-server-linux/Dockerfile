@@ -3,7 +3,8 @@
 # GitRepo: https://github.com/Microsoft/mssql-docker
 
 # Base OS layer: Latest Ubuntu LTS.
-FROM ubuntu:16.04
+#FROM ubuntu:16.04
+FROM registry.access.redhat.com/rhscl/httpd-24-rhel7
 
 # Default SQL Server TCP/Port.
 EXPOSE 1433
