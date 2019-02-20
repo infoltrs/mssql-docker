@@ -15,7 +15,7 @@ LABEL name="microsoft/mssql-server-linux" \
 ### Required labels above - recommended below
       url="https://www.microsoft.com/en-us/sql-server/" \
       run='docker run --name ${NAME} \
-        -e ACCEPT_EULA=Y -e SA_PASSWORD=redhat123@Password \
+        -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Redhat!23' \
         -p 1433:1433 \
         -d  ${IMAGE}' \
       io.k8s.description="MS SQL Server is ....." \
