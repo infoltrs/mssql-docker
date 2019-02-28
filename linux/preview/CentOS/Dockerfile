@@ -38,7 +38,7 @@ COPY *.sql /usr/sql/bin/
 COPY *.csv /usr/sql/bin/
 RUN mkdir -p /var/opt/mssql/data && \
     chmod -R g=u /var/opt/mssql /etc/passwd
-RUN chmod +x /usr/sql/bin/*
+RUN chmod +wx /usr/sql/bin/*
 
 ### Containers should not run as root as a good practice
 USER 10001
