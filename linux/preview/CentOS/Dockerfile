@@ -33,9 +33,9 @@ ENV ACCEPT_EULA=Y
 ENV SA_PASSWORD=RedHat!23
 ENV MSSQL_PID=Express
 RUN mkdir -p /usr/sql/bin
-COPY *.sh /usr/sql/bin/.
-COPY *.sql /usr/sql/bin/.
-COPY *.csv /usr/sql/bin/.
+COPY *.sh /usr/sql/bin/
+COPY *.sql /usr/sql/bin/
+COPY *.csv /usr/sql/bin/
 RUN mkdir -p /var/opt/mssql/data && \
     chmod -R g=u /var/opt/mssql /etc/passwd
 
