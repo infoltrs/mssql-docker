@@ -15,8 +15,7 @@ LABEL name="microsoft/mssql-server-linux" \
 ### Required labels above - recommended below
       url="https://www.microsoft.com/en-us/sql-server/" \
       run='docker run --name ${NAME} \
-        -e ACCEPT_EULA=Y -e SA_PASSWORD=RedHat!23 \
-        -e MSSQL_PID=Express \
+        -e ACCEPT_EULA=Y -e SA_PASSWORD=RedHat!23 -e MSSQL_PID=Express \
         -p 1433:1433 \
         -d  ${IMAGE}' \
       io.k8s.description="MS SQL Server is ....." \
@@ -30,6 +29,9 @@ RUN curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/co
 
 COPY uid_entrypoint /opt/mssql-tools/bin/
 ENV PATH=${PATH}:/opt/mssql/bin:/opt/mssql-tools/bin
+ENV ACCEPT_EULA=Y
+ENV SA_PASSWORD=RedHat!23
+ENV MSSQL_PID=Express
 RUN mkdir -p /var/opt/mssql/data && \
     chmod -R g=u /var/opt/mssql /etc/passwd
 
@@ -44,4 +46,4 @@ VOLUME /var/opt/mssql/data
 ### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
 ENTRYPOINT [ "uid_entrypoint" ]
 # Run SQL Server process
-CMD 'sqlservr --accept-eula=Y'
+CMD sqlservr
