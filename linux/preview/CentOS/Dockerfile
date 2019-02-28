@@ -36,8 +36,6 @@ RUN mkdir -p /usr/sql/bin
 COPY *.sh /usr/sql/bin/
 COPY *.sql /usr/sql/bin/
 COPY *.csv /usr/sql/bin/
-RUN mkdir -p /home/sqlservr && \
-    chown -R sqlservr:sqlservr /home/sqlservr
 RUN mkdir -p /var/opt/mssql/data && \
     chmod -R g=u /var/opt/mssql /etc/passwd
 RUN chmod +wx /usr/sql/bin/*
