@@ -32,6 +32,10 @@ ENV PATH=${PATH}:/opt/mssql/bin:/opt/mssql-tools/bin
 ENV ACCEPT_EULA=Y
 ENV SA_PASSWORD=RedHat!23
 ENV MSSQL_PID=Express
+RUN mkdir -p /usr/sql/bin
+COPY *.sh /usr/sql/bin/.
+COPY *.sql /usr/sql/bin/.
+COPY *.csv /usr/sql/bin/.
 RUN mkdir -p /var/opt/mssql/data && \
     chmod -R g=u /var/opt/mssql /etc/passwd
 
@@ -46,4 +50,4 @@ VOLUME /var/opt/mssql/data
 ### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
 ENTRYPOINT [ "uid_entrypoint" ]
 # Run SQL Server process
-CMD entrypoint.sh
+CMD /usr/sql/bin/entrypoint.sh
