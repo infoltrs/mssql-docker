@@ -24,7 +24,7 @@ LABEL name="microsoft/mssql-server-linux" \
 # Install latest mssql-server package
 RUN curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/7/mssql-server-2017.repo && \
     curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/rhel/7/prod.repo && \
-    curl -sL https://rpm.nodesource.com/setup_11.x | sudo -E bash - && \
+    curl -sL https://rpm.nodesource.com/setup_11.x && \
     ACCEPT_EULA=Y yum install -y mssql-server mssql-tools unixODBC-devel gcc-c++ make && \
     yum install nodejs && \
     yum clean all
