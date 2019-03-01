@@ -50,6 +50,7 @@ WORKDIR /usr/src/app
 
 # Install app dependencies
 COPY package.json /usr/src/app/
+COPY server.js /usr/src/app/
 RUN npm install
 
 ### Containers should not run as root as a good practice
