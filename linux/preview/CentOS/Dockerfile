@@ -29,6 +29,9 @@ RUN curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/co
     yum -y install nodejs && \
     yum clean all
 
+# Install tedious, the driver for SQL Server for Node.js
+RUN npm install tedious
+
 COPY uid_entrypoint /opt/mssql-tools/bin/
 ENV PATH=${PATH}:/opt/mssql/bin:/opt/mssql-tools/bin
 ENV ACCEPT_EULA=Y
