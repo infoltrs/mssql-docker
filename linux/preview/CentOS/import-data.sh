@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo hello-world > /usr/sql/bin/hello.txt
+
 #wait for the SQL Server to come up
 #sleep 60s
 
