@@ -27,8 +27,7 @@ RUN curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/co
     curl -sL https://rpm.nodesource.com/setup_11.x | bash - && \
     ACCEPT_EULA=Y yum install -y mssql-server mssql-tools unixODBC-devel gcc-c++ make && \
     yum -y install nodejs && \
-    yum clean all && \
-    /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'RedHat!23' -d master -i /usr/sql/bin/setup.sql
+    yum clean all
 
 # Install tedious, the driver for SQL Server for Node.js
 RUN npm install tedious
