@@ -67,5 +67,5 @@ VOLUME /var/opt/mssql/data
 ### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
 ENTRYPOINT [ "uid_entrypoint" ]
 # Run SQL Server process
-#CMD /bin/bash /usr/sql/bin/entrypoint.sh
-CMD sqlservr
+CMD /bin/bash /usr/sql/bin/entrypoint.sh
+#CMD sqlservr
