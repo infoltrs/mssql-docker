@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #wait for the SQL Server to come up
-#sleep 30s
+sleep 60s
 
 #run the setup script to create the DB and the schema in the DB
 echo "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'RedHat!23' -d master -i /usr/sql/bin/setup.sql"
